@@ -1,6 +1,44 @@
 <template>
     <div class="preview">
-        <section/>
+            <div class ="lay2">
+      <div id="box" class="show">
+         <div class ="show-me" id="text">Show me</div>
+          <!-- <button class ="show-all">
+            Show all</button> -->
+            <div class="category" id="text">
+              <div><button>White</button></div>
+              <div><button>Red</button></div>
+              <div><button>Sparkling</button></div>
+              <div class="order-by">
+                Order by </div>
+              <div><button>Price</button></div>
+              <div><button>Vintage</button></div>
+          </div>
+      </div>  
+
+      <div class="part2" id="box">
+        <div class="delivery-info">
+          Delivery info
+        </div>
+        <div class="totalBottles">
+          <h2>36</h2> 
+          <h2>Bottles</h2>
+        </div>
+      </div>
+
+      <div class="part3" id="box">
+          <div class="top">
+            36*2013 Breidecker
+          <button class="empty-cart">Empty Cart</button>
+          </div>
+        <hr/>
+          <div class="bottom">
+            Ksh.432.56x
+          <button class="check-out">Check Out</button>
+          </div>
+        </div>
+
+     </div>
         <div class="product-container">
             <div class="image">
                 <img src="@/assets/reisling.png" />
@@ -13,7 +51,7 @@
             </div>
 
             <div class="cost">
-                <h3 class="bottle-price">Bottle <br>${{totalPrice}}<br> 
+                <h3 class="bottle-price">Bottle <br><br> 
                 <input placeholder="0" 
                 v-model="bottleQuantity">QTY</h3>
                 <div class="vl"></div>
@@ -68,27 +106,100 @@ export default {
             this.items = response.data 
             console.log(response.data)
             
-             for(var i=0; i<this.items.length; i++){  
-                var product =this.items[i]; 
-                var totalPrice = this.bottleQuantity * product.cost.bottle
-                console.log(product.cost.bottle) 
-                console.log(totalPrice) 
-            }
         }) 
         }
 }
 </script>
-
+   
 <style scoped>
-
-
-.preview{
-    background-color: aqua;
+.lay2{
+  width:100%;
+  position:relative;
+  display:flex;
+  margin:10px;
+  padding:10px;
 }
-section{
-    margin:10px;
-    padding:60px;
-    background-color: blue;
+#box{
+width: 33%;
+padding:1px;
+margin:2px;
+height: 18vh;
+}
+button{
+  background-color: rgb(179, 164, 164);
+  border:none;
+}
+.show{
+   height:100%;
+   margin-top:100px;
+}
+
+.show-me{
+  font-size:17.5px;
+  height:5vh;
+  padding-left:10px;
+  padding-top:5px;
+  background-color: rgb(230, 236, 236);
+  width:120px;
+}
+.category{
+  background-color: rgb(230, 236, 236);
+  padding-bottom: 10px;
+}
+.category div{
+  margin:1px;
+  padding:3px;
+  width:30%;
+  display:inline-block;
+}
+.category button{
+  width:100px;
+  height:30px;
+}
+.order-by{
+   font-size:17px;
+
+}
+.part2{
+  padding:2px;
+  display:flex;
+  height:50vh;
+  
+}
+.part2 div{
+  background-color: rgb(230, 236, 236);
+  width:40vh;
+  padding: 10px;
+  height:18vh;
+  text-align: center;
+}
+.delivery-info{
+  font-size: 17px;
+   margin-left:40px;
+}
+.totalBottles{
+ margin-left:5px;
+}
+.part3{
+padding:5px;
+font-size:17px;
+background-color: rgb(230, 236, 236);
+}
+.part3 div{
+  height: 45%;
+  padding-top:10px;
+}
+.part3 button{
+  width:100px;
+  height:30px;
+}
+.empty-cart{
+  margin-left:100px;
+}
+.check-out{
+  margin-left:150px;
+  background-color: rgb(39, 37, 37);
+  color:white;
 }
 
 .product-container{
