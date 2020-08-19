@@ -1,5 +1,6 @@
 "use strict";
 const express = require('express')
+var cors = require('cors')
 const serveStatic = require('serve-static')
 const path = require('path')
 
